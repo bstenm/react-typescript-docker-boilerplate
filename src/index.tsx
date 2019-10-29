@@ -3,4 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-ReactDOM.render(<App count={1} />, document.getElementById('root'));
+const rootEl = document.getElementById('root');
+
+ReactDOM.render(<App count={1} />, rootEl);
+
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    const NextApp = require('./App').default;
+    ReactDOM.render(<NextApp />, rootEl);
+  });
+}
