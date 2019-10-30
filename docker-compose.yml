@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  react_boilerplate_dev:
+    image: react_boilerplate:dev
+    container_name: react_boilerplate_dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - '.:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+
+  react_boilerplate_prod:
+    image: react_boilerplate:prod
+    container_name: react_boilerplate_prod
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '5000:5000'
+    environment:
+      - NODE_ENV=production
