@@ -1,24 +1,38 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from 'react-bootstrap/Button';
-import './App.css';
 
 const App: React.FC<{ count: number }> = props => {
   const [count, setCount] = useState(0);
 
-  const StyledButton = styled(Button)`
+  const App = styled.div`
+    text-align: center;
+  `;
+
+  const Header = styled.header`
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  `;
+
+  const AddButton = styled(Button)`
     margin-bottom: 20px;
   `;
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <StyledButton variant="light" onClick={() => setCount(count + 1)}>
+    <App>
+      <Header>
+        <AddButton variant="light" onClick={() => setCount(count + 1)}>
           Add
-        </StyledButton>
+        </AddButton>
         <p>Count: {count}</p>
-      </header>
-    </div>
+      </Header>
+    </App>
   );
 };
 
