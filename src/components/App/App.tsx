@@ -21,7 +21,7 @@ const App: React.FC = () => {
   return (
     <App>
       <Header>
-        <Home message="Add" />
+        <Home />
       </Header>
     </App>
   );
