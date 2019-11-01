@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Home from '../Home';
 import styled from 'styled-components';
-import Button from 'react-bootstrap/Button';
 
-const App: React.FC<{ count: number }> = props => {
-  const [count, setCount] = useState(0);
-
+const App: React.FC = () => {
   const App = styled.div`
     text-align: center;
   `;
@@ -20,17 +18,10 @@ const App: React.FC<{ count: number }> = props => {
     color: white;
   `;
 
-  const AddButton = styled(Button)`
-    margin-bottom: 20px;
-  `;
-
   return (
     <App>
       <Header>
-        <AddButton variant="light" onClick={() => setCount(count + 1)}>
-          Add
-        </AddButton>
-        <p>Count: {count}</p>
+        <Home message="Add" />
       </Header>
     </App>
   );
